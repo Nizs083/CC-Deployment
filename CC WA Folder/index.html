@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Daily Dose</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(135deg, #1e3c72, #2a5298);
+      color: #fff;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .quote-box {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      border-radius: 20px;
+      padding: 40px;
+      max-width: 600px;
+      text-align: center;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+      transition: all 0.3s ease-in-out;
+    }
+
+    .quote {
+      font-size: 1.6rem;
+      line-height: 1.4;
+    }
+
+    .author {
+      margin-top: 20px;
+      font-style: italic;
+      color: #ddd;
+    }
+
+    button {
+      margin-top: 30px;
+      padding: 10px 25px;
+      background: #fff;
+      color: #2a5298;
+      border: none;
+      border-radius: 30px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    button:hover {
+      background: #e0e0e0;
+    }
+
+    .background-bubble {
+      position: absolute;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.05);
+      animation: float 20s infinite ease-in-out;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-20px); }
+    }
+
+    .bubble1 {
+      width: 200px;
+      height: 200px;
+      top: 10%;
+      left: 10%;
+    }
+
+    .bubble2 {
+      width: 150px;
+      height: 150px;
+      bottom: 15%;
+      right: 15%;
+    }
+  </style>
+</head>
+<body>
+  <div class="background-bubble bubble1"></div>
+  <div class="background-bubble bubble2"></div>
+
+  <div class="quote-box">
+    <div class="quote" id="quote">"Keep your face always toward the sunshine—and shadows will fall behind you."</div>
+    <div class="author" id="author">– Walt Whitman</div>
+    <button onclick="newQuote()">New Quote</button>
+  </div>
+
+  <script>
+    const quotes = [
+      {
+        quote: "The best way to predict the future is to create it.",
+        author: "Peter Drucker"
+      },
+      {
+        quote: "Your time is limited, don't waste it living someone else's life.",
+        author: "Steve Jobs"
+      },
+      {
+        quote: "Do what you can, with what you have, where you are.",
+        author: "Theodore Roosevelt"
+      },
+      {
+        quote: "Success is not final, failure is not fatal: It is the courage to continue that counts.",
+        author: "Winston Churchill"
+      },
+      {
+        quote: "Believe you can and you're halfway there.",
+        author: "Theodore Roosevelt"
+      },
+      {
+        quote: "Act as if what you do makes a difference. It does.",
+        author: "William James"
+      }
+    ];
+
+    function newQuote() {
+      const random = quotes[Math.floor(Math.random() * quotes.length)];
+      document.getElementById('quote').textContent = `"${random.quote}"`;
+      document.getElementById('author').textContent = `– ${random.author}`;
+    }
+  </script>
+</body>
+</html>
